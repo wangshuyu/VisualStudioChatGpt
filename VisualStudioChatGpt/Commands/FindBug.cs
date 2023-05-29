@@ -12,7 +12,7 @@ namespace VisualStudioChatGpt.Commands
 {
     internal class FindBug : MyBase
     {
-        public override async void VirHandler(object sender, EventArgs e)
+        internal override async void VirHandler(object sender, EventArgs e)
         {
             await ThreadHelper.JoinableTaskFactory.RunAsync(async () =>
             {
@@ -25,12 +25,12 @@ namespace VisualStudioChatGpt.Commands
             });
         }
 
-        public override void VirStart()
+        internal override void VirStart()
         {
             ThreadHelper.ThrowIfNotOnUIThread();
             this.insertPoint.Insert("\n/*");
         }
-        public override void VirEnd()
+        internal override void VirEnd()
         {
             ThreadHelper.ThrowIfNotOnUIThread();
             this.insertPoint.Insert("*/\r\n");

@@ -23,27 +23,27 @@ using System.Net;
 
 namespace VisualStudioChatGpt.Commands
 {
-    public class MyBase
+    internal class MyBase
     {
 
         // 定义事件处理器的委托类型
-        public delegate void MyShowEventHandler(string message);
-        public delegate void MyStartEventHandler();
-        public delegate void MyEndEventHandler();
+        internal delegate void MyShowEventHandler(string message);
+        internal delegate void MyStartEventHandler();
+        internal delegate void MyEndEventHandler();
 
         /// <summary>
         /// 插入节点对象
         /// </summary>
-        public EditPoint insertPoint;
+        internal EditPoint insertPoint;
 
         /// <summary>
         /// Command menu group (command set GUID).
         /// </summary>
-        public static readonly Guid CommandSet = new Guid("a8eb0343-b35c-4175-95d8-50549e609ff3");
+        internal static readonly Guid CommandSet = new Guid("a8eb0343-b35c-4175-95d8-50549e609ff3");
 
 
-        public Dictionary<string, string> dict = new Dictionary<string, string>();
-        public MyBase()
+        internal Dictionary<string, string> dict = new Dictionary<string, string>();
+        internal MyBase()
         {
 
         }
@@ -54,7 +54,7 @@ namespace VisualStudioChatGpt.Commands
         /// <param name="id"></param>
         /// <param name="handler"></param>
         /// <param name="commandService"></param>
-        public void AddEvent(int id, EventHandler handler, OleMenuCommandService commandService)
+        internal void AddEvent(int id, EventHandler handler, OleMenuCommandService commandService)
         {
             var _obj = new CommandID(CommandSet, id);
             var menuItem = new MenuCommand(handler, _obj);
@@ -68,7 +68,7 @@ namespace VisualStudioChatGpt.Commands
         /// 获取选中内容
         /// </summary>
         /// <returns></returns>
-        public async System.Threading.Tasks.Task<string> GetSelectedTextAsync()
+        internal async System.Threading.Tasks.Task<string> GetSelectedTextAsync()
         {
             await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync();
             var ret = "";
@@ -82,7 +82,7 @@ namespace VisualStudioChatGpt.Commands
             }
             if (string.IsNullOrEmpty(ret))
             {
-                MessageBox.Show(TypeModel.message);
+                MessageBox.Show(TypeModel.Message, "警告提示");
             }
             return ret;
         }
@@ -97,7 +97,7 @@ namespace VisualStudioChatGpt.Commands
         /// <param name="content">chatgpt搜索文本内容</param>
         /// <param name="position">插入位置</param>
         /// <returns></returns>
-        public async Task InsertChatGptAsync(string content, InsertPointEnum position)
+        internal async Task InsertChatGptAsync(string content, InsertPointEnum position)
         {
             await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync();
             DTE dte = (DTE)Package.GetGlobalService(typeof(DTE));
@@ -135,7 +135,7 @@ namespace VisualStudioChatGpt.Commands
         /// 插入常量
         /// </summary>
         /// <param name="content"></param>
-        public async Task InsertConstAsync(string content, InsertPointEnum position)
+        internal async Task InsertConstAsync(string content, InsertPointEnum position)
         {
             await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync();
             DTE dte = (DTE)Package.GetGlobalService(typeof(DTE));
@@ -173,7 +173,7 @@ namespace VisualStudioChatGpt.Commands
         /// <summary>
         /// 格式化代码
         /// </summary>
-        public async Task SimulateCtrlKCtrlDAsync()
+        internal async Task SimulateCtrlKCtrlDAsync()
         {
             await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync();
             DTE dte = (DTE)Package.GetGlobalService(typeof(DTE));
@@ -191,7 +191,7 @@ namespace VisualStudioChatGpt.Commands
         /// <param name="ltcid"></param> 
         /// <param name="timeout">默认超时 5秒</param> 
         /// <returns></returns>
-        public static async Task OpenAiAsync(string word, MyShowEventHandler showEvent, MyStartEventHandler startEvent, MyEndEventHandler endEvent)
+        internal static async Task OpenAiAsync(string word, MyShowEventHandler showEvent, MyStartEventHandler startEvent, MyEndEventHandler endEvent)
         {
             await ThreadHelper.JoinableTaskFactory.RunAsync(async () =>
             {
@@ -265,7 +265,7 @@ namespace VisualStudioChatGpt.Commands
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        public virtual async void VirHandler(object sender, EventArgs e)
+        internal virtual async void VirHandler(object sender, EventArgs e)
         {
             MessageBox.Show("未实现此功能!");
         }
@@ -274,7 +274,7 @@ namespace VisualStudioChatGpt.Commands
         /// 插入代码
         /// </summary>
         /// <param name="message"></param>
-        public virtual void VirShowMessage(string message)
+        internal virtual void VirShowMessage(string message)
         {
             if (this.insertPoint != null)
             {
@@ -286,7 +286,7 @@ namespace VisualStudioChatGpt.Commands
         /// 执行开始
         /// </summary>
         /// <param name="message"></param>
-        public virtual void VirStart()
+        internal virtual void VirStart()
         {
         }
 
@@ -294,7 +294,7 @@ namespace VisualStudioChatGpt.Commands
         /// 执行完成
         /// </summary>
         /// <param name="message"></param>
-        public virtual void VirEnd()
+        internal virtual void VirEnd()
         {
         }
         #endregion

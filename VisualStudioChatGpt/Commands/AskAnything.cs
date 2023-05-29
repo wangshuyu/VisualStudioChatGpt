@@ -13,7 +13,7 @@ namespace VisualStudioChatGpt.Commands
     /// </summary>
     internal class AskAnything : MyBase
     {
-        public override void VirHandler(object sender, EventArgs e)
+        internal override void VirHandler(object sender, EventArgs e)
         {
             Process.Start("https://chat.openai.com/");
             //base.VirHandler(sender, e);

@@ -17,7 +17,7 @@ namespace VisualStudioChatGpt.Commands
     /// </summary>
     internal class SetUp : MyBase
     {
-        public override void VirHandler(object sender, EventArgs e)
+        internal override void VirHandler(object sender, EventArgs e)
         {
             ThreadHelper.ThrowIfNotOnUIThread();
 
