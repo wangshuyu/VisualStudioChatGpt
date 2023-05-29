@@ -36,8 +36,10 @@ namespace VisualStudioChatGpt.Tools
                 if (string.IsNullOrEmpty(config.apikey))
                 {
                     MessageBox.Show("请设置OpenAI key");
-                    FormSetUp window = new FormSetUp();
-                    window.Show();
+
+                    var form = new FormSetUp();
+                    form.StartPosition = FormStartPosition.CenterScreen;
+                    form.Show();
                     return;
                 }
 

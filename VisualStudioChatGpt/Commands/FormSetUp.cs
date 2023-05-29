@@ -61,6 +61,7 @@ namespace VisualStudioChatGpt.Commands
                 timeout = txt_timeout.Text.Trim()
             };
             MyConfig.Set(entity);
+            MessageBox.Show("保存配置文件成功!");
         }
     }
 }

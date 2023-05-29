@@ -12,7 +12,7 @@
 		<Menus>
 			<Menu guid="guidVisualStudioChatGptPackage" id="MySubMenu" type="Menu">
 				<Strings>
-					<ButtonText>Code ChatGPT</ButtonText>
+					<ButtonText>Visual Studio ChatGpt</ButtonText>
 				</Strings>
 			</Menu>
 		</Menus>
