@@ -5,7 +5,7 @@
 您将能够直接通过文本编辑器或通过新的特定工具窗口查阅 chatGPT。
  
 
-- Visual Studio 2022: [点击跳转vs2022扩展插件](https://www.baidu.com/) 
+- Visual Studio 2022: [未发布](https://www.baidu.com/) 
 
 ## 文本编辑器中的功能
 
