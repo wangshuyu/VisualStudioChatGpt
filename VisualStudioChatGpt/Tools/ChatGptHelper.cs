@@ -1,9 +1,5 @@
 ﻿using Microsoft.VisualStudio.Package;
 using Newtonsoft.Json;
-using OpenAI.GPT3.Managers;
-using OpenAI.GPT3.ObjectModels.RequestModels;
-using OpenAI.GPT3.ObjectModels;
-using OpenAI.GPT3;
 using RestSharp;
 using System;
 using System.Collections.Generic;
@@ -12,7 +8,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Net.Http;
 using System.Net;
-using OpenAI.GPT3.Interfaces;
 using System.IO;
 using System.Collections;
 using Microsoft.VisualStudio.Shell;
