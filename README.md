@@ -44,7 +44,7 @@
 - 非常感谢作者的无私奉献： [https://github.com/jeffdapaz/VisualChatGPTStudio](https://github.com/jeffdapaz/VisualChatGPTStudio)
 
 ## 历史版本
-### v0.01.01
+### v0.1.2
 - 初始化版本 基本功能支持
 - 完成代码
 - 查找bugs
