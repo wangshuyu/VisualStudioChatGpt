@@ -1,18 +1,14 @@
 # Visual Studio ChatGPT
-
-这是一个直接在Visual Studio中添加chatGPT功能的扩展。
-
-您将能够直接通过文本编辑器或通过新的特定工具窗口查阅 chatGPT。
+- 这是一个直接在Visual Studio中添加chatGPT功能的扩展。
+- 您将能够直接通过文本编辑器或通过新的特定工具窗口查阅 chatGPT。
  
 
 - Visual Studio 2022: [未发布](https://www.baidu.com/) 
 
 ## 文本编辑器中的功能
-
-选择一种方法并右键单击文本编辑器，您将看到这些新的chatGPT命令：
-
-
-![image](https://cdn.jsdelivr.net/gh/wangshuyu/Images001@main/2023/0529/121447749.png)
+- 选择一种方法并右键单击文本编辑器，您将看到这些新的chatGPT命令：
+  
+  ![image](https://cdn.jsdelivr.net/gh/wangshuyu/Images001@main/2023/0529/121447749.png)
 
 - **完成代码:** 开始编写方法，选择它并要求完成。
 - **查找Bug:** 查找所选方法或代码片段的错误bugs。
