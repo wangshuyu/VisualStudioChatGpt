@@ -3,7 +3,7 @@
 - 您将能够直接通过文本编辑器或通过新的特定工具窗口查阅 chatGPT。
  
 
-- Visual Studio 2022: [未发布](https://www.baidu.com/) 
+- Visual Studio 2022: [插件地址](https://marketplace.visualstudio.com/items?itemName=MogoVsixRightMenu1.VisualStudioChatGpt) 
 
 ## 文本编辑器中的功能
 - 选择一种方法并右键单击文本编辑器，您将看到这些新的chatGPT命令：
