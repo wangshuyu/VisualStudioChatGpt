@@ -18,7 +18,7 @@ namespace VisualStudioChatGpt.Model
         internal static string Optimize = $"请优化压缩代码,只返回优化后的代码实现,不需要返回其他任何多余信息,{common}";
         internal static string Explain = $"请帮我写个简短的解释说明 ,{common}";
         internal static string AddComment = $"请帮我添加方法注释说明 ,{common}";
-        internal static string AddSummary = $"请提供方法的注释信息，而不是代码实现, 只要注释信息,不要其它任何多余的信息,格式:summary形式。{common}";
+        internal static string AddSummary = $"请提供方法的注释信息，而不是代码实现, 只要注释信息,不要其它任何多余的信息,c#格式:summary形式。{common}";
         internal static string AddTest = $"写一个单元测试,不要前后说明文字,{common}";
     }
 
