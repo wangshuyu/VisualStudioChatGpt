@@ -14,8 +14,8 @@
     <ProjectGuid>{05BD26BF-0675-442B-BFB3-82C5A1415B92}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Vs_ChatGpt</RootNamespace>
-    <AssemblyName>Vs-ChatGpt</AssemblyName>
+    <RootNamespace>VisualStudioChatGpt</RootNamespace>
+    <AssemblyName>VisualStudioChatGpt</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <GeneratePkgDefFile>true</GeneratePkgDefFile>
     <UseCodebase>true</UseCodebase>
@@ -105,7 +105,10 @@
     <Content Include="Resources\addTests.png" />
     <Content Include="Resources\askAnything.png" />
     <Content Include="Resources\bot.png" />
-    <Content Include="Resources\chatGPT.png" />
+    <Content Include="Resources\chatGPT.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
     <Content Include="Resources\check.png" />
     <Content Include="Resources\clear.png" />
     <Content Include="Resources\Command1.png" />
@@ -120,6 +123,10 @@
     <Content Include="Resources\Icon.png" />
     <Content Include="Resources\optimize.png" />
     <Content Include="Resources\paste.png" />
+    <Content Include="Resources\preview.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
     <Content Include="Resources\repair.png" />
     <Content Include="Resources\repairbug.png" />
     <Content Include="Resources\send.png" />

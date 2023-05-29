@@ -3,7 +3,24 @@
     <Metadata>
         <Identity Id="VisualStudioChatGpt.ee7b9349-7c21-4740-842e-18c893f9ad91" Version="0.01.01" Language="en-US" Publisher="王树羽" />
         <DisplayName>VisualStudioChatGpt</DisplayName>
-        <Description xml:space="preserve">Empty VSIX Project.</Description>
+        <Description xml:space="preserve">Visual Studio ChatGpt 
+github: https://github.com/wangshuyu/VisualStudioChatGpt
+说明:
+完成代码: 开始编写方法，选择它并要求完成。
+查找Bug: 查找所选方法或代码片段的错误bugs。
+修复bug: 修改所选方法或代码片段的错误。
+优化代码: 优化所选的代码的方法。
+为当前代码写说明: 编写所选方法的说明。
+添加注释: 为所选方法添加注释。
+添加方法摘要Summary: 添加 C# 方法的摘要Summary。-
+添加单元测试: 为所选方法创建单元测试。
+对话提问: 直接跳转到chat.openai.com。
+设置: 设置OpenAI相关配置信息。</Description>
+        <MoreInfo>https://github.com/wangshuyu/VisualStudioChatGpt</MoreInfo>
+        <Icon>Resources\chatGPT.png</Icon>
+        <PreviewImage>Resources\preview.png</PreviewImage>
+        <Tags>ChatGpt</Tags>
+        <Preview>true</Preview>
     </Metadata>
     <Installation>
         <InstallationTarget Id="Microsoft.VisualStudio.Community" Version="[17.0, 18.0)">
