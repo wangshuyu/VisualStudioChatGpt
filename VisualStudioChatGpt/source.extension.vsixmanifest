@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" ?>
 <PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011" xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
     <Metadata>
-        <Identity Id="VisualStudioChatGpt.ee7b9349-7c21-4740-842e-18c893f9ad91" Version="0.002" Language="en-US" Publisher="王树羽" />
+        <Identity Id="VisualStudioChatGpt.ee7b9349-7c21-4740-842e-18c893f9ad91" Version="0.01.01" Language="en-US" Publisher="王树羽" />
         <DisplayName>VisualStudioChatGpt</DisplayName>
         <Description xml:space="preserve">Empty VSIX Project.</Description>
     </Metadata>

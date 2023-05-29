@@ -10,6 +10,8 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using VisualStudioChatGpt.Model;
+using Vs_ChatGpt.Model;
 
 namespace VisualStudioChatGpt.Commands
 {

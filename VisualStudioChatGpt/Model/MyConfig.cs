@@ -5,8 +5,9 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Vs_ChatGpt.Model;
 
-namespace VisualStudioChatGpt.Commands
+namespace VisualStudioChatGpt.Model
 {
     public class MyConfig
     {
@@ -42,16 +43,5 @@ namespace VisualStudioChatGpt.Commands
             string updatedJson = JsonConvert.SerializeObject(entity);
             File.WriteAllText(configFile, updatedJson);
         }
-
-    }
-
-    public class MyConfigModel
-    {
-        public string apikey { get; set; }
-        public string proxy { get; set; }
-        public string maxtoken { get; set; }
-        public string temperature { get; set; }
-        public string model { get; set; }
-        public string timeout { get; set; }
     }
 }

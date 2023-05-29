@@ -4,10 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace VisualStudioChatGpt.Commands
+namespace VisualStudioChatGpt.Model
 {
     public class TypeModel
     {
+        public static string message = "请选择代码块!";
+
         private static string common = "中文回复,尽量回复简短一点,C#\r\n";
         public static string Complete = $"请完善代码,不要前后说明,{common}";
         public static string RepairBug = $"修复bugs,只需要返回代码部分,{common}";

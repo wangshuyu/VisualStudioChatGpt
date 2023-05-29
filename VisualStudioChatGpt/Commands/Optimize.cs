@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using VisualStudioChatGpt.Model;
 
 namespace VisualStudioChatGpt.Commands
 {
@@ -18,7 +19,10 @@ namespace VisualStudioChatGpt.Commands
             {
                 // 在主线程执行异步操作完成后的代码逻辑
                 var selectedTex = await GetSelectedTextAsync();
-                await InsertChatGptAsync($"{TypeModel.Optimize}{selectedTex}", InsertPointEnum.Replace);
+                if (!string.IsNullOrEmpty(selectedTex))
+                {
+                    await InsertChatGptAsync($"{TypeModel.Optimize}{selectedTex}", InsertPointEnum.Replace);
+                }
             });
         }
 
