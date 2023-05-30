@@ -42,7 +42,7 @@ namespace VisualStudioChatGpt.Commands
         internal static readonly Guid CommandSet = new Guid("c43b20df-6d16-49bc-b783-8bb7f5c6ff4e");
 
 
-        internal Dictionary<string, string> dict = new Dictionary<string, string>();
+        internal Dictionary<TyperEnum, TypeModel> dict = new Dictionary<TyperEnum, TypeModel>();
         internal MyBase()
         {
 
@@ -94,10 +94,11 @@ namespace VisualStudioChatGpt.Commands
         /// 选中代码后面插入内容
         /// </summary>
         /// <param name="preValue">预先插入值</param>
-        /// <param name="content">chatgpt搜索文本内容</param>
+        /// <param name="word">chatgpt搜索文本内容</param>
+        /// <param name="problem">提问信息</param>
         /// <param name="position">插入位置</param>
         /// <returns></returns>
-        internal async Task InsertChatGptAsync(string content, InsertPointEnum position)
+        internal async Task InsertChatGptAsync(string word, InsertPointEnum position)
         {
             await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync();
             DTE dte = (DTE)Package.GetGlobalService(typeof(DTE));
@@ -124,7 +125,7 @@ namespace VisualStudioChatGpt.Commands
                     this.insertPoint = selection.BottomPoint.CreateEditPoint();
                 }
                 // 添加事件处理器
-                _ = OpenAiAsync(content, VirShowMessage, VirStart, VirEnd);
+                _ = OpenAiAsync(word, VirShowMessage, VirStart, VirEnd);
             }
         }
         #endregion
@@ -206,8 +207,7 @@ namespace VisualStudioChatGpt.Commands
                     return;
                 }
 
-                var url = "https://api.openai.com/v1/chat/completions";
-                var client = new RestClient(url);
+                var client = new RestClient(config.apiurl);
                 client.Proxy = new WebProxy(config.proxy);
 
                 // 创建请求对象
@@ -222,7 +222,9 @@ namespace VisualStudioChatGpt.Commands
                     temperature = Convert.ToDouble(config.temperature),
                     stream = true,
                     max_tokens = Convert.ToInt32(config.maxtoken),
-                    messages = new List<object> { new { role = "user", content = word } }
+                    messages = new List<object> {
+                        //new { role = "system", content = word },
+                        new { role = "user", content = word } }
                 });
 
                 // 执行请求

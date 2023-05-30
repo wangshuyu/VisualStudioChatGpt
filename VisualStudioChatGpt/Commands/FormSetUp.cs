@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -48,6 +49,10 @@ namespace VisualStudioChatGpt.Commands
                 {
                     txt_timeout.Text = entity.timeout;
                 }
+                if (!string.IsNullOrEmpty(entity.apiurl))
+                {
+                    txt_apiurl.Text = entity.apiurl;
+                }
             }
         }
 
@@ -64,6 +69,11 @@ namespace VisualStudioChatGpt.Commands
             };
             MyConfig.Set(entity);
             MessageBox.Show("保存配置文件成功!");
+        }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Process.Start("https://beta.openai.com/account/api-keys");
         }
     }
 }

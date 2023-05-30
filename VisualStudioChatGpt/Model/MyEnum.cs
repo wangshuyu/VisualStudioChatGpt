@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EnvDTE;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -18,8 +19,65 @@ namespace VisualStudioChatGpt.Model
         internal static string Optimize = $"请优化压缩代码,只返回优化后的代码实现,不需要返回其他任何多余信息,{common}";
         internal static string Explain = $"请帮我写个简短的解释说明 ,{common}";
         internal static string AddComment = $"请帮我添加方法注释说明 ,{common}";
-        internal static string AddSummary = $"请提供方法的注释信息，而不是代码实现, 只要注释信息,不要其它任何多余的信息,c#格式:summary形式。{common}";
+        internal static string AddSummary = $"请提供方法的注释信息，而不是代码实现, 只要注释信息,不要其它任何多余的信息,c#格式:summary格式。{common}";
         internal static string AddTest = $"写一个单元测试,不要前后说明文字,{common}";
+
+        /// <summary>
+        /// openai system的限定词
+        /// </summary>
+        public string Determiner { get; set; }
+
+        /// <summary>
+        /// 问题
+        /// 对应openai的user的content
+        /// </summary>
+        public string Problem { get; set; }
+    }
+
+    /// <summary>
+    /// 类型
+    /// </summary>
+    internal enum TyperEnum
+    {
+        /// <summary>
+        /// 完善代码
+        /// </summary>
+        Complete,
+
+        /// <summary>
+        /// 查找bug
+        /// </summary>
+        FindBug,
+
+        /// <summary>
+        /// 修复bug
+        /// </summary>
+        RepairBug,
+
+        /// <summary>
+        /// 优化代码
+        /// </summary>
+        Optimize,
+
+        /// <summary>
+        /// 添加代码解释说明
+        /// </summary>
+        Explain,
+
+        /// <summary>
+        /// 添加说明
+        /// </summary>
+        AddComment,
+
+        /// <summary>
+        /// 添加注释
+        /// </summary>
+        AddSummary,
+
+        /// <summary>
+        /// 添加单元测试
+        /// </summary>
+        AddTest,
     }
 
     /// <summary>
@@ -27,8 +85,19 @@ namespace VisualStudioChatGpt.Model
     /// </summary>
     internal enum InsertPointEnum
     {
+        /// <summary>
+        /// 选择代码前插入
+        /// </summary>
         Before = 0,
+
+        /// <summary>
+        /// 选择代码后插入
+        /// </summary>
         After = 1,
+
+        /// <summary>
+        /// 替换选择代码
+        /// </summary>
         Replace = 2
     }
 }

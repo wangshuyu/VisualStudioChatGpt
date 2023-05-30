@@ -15,5 +15,6 @@ namespace Vs_ChatGpt.Model
         public string temperature { get; set; }
         public string model { get; set; }
         public string timeout { get; set; }
+        public string apiurl { get; set; }
     }
 }

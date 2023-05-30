@@ -24,12 +24,17 @@ namespace VisualStudioChatGpt.Model
                 model = "gpt-3.5-turbo",
                 maxtoken = "500",
                 temperature = "0.7",
-                timeout = "60"
+                timeout = "60",
+                apiurl = "https://api.openai.com/v1/chat/completions",
             };
             if (File.Exists(configFile))
             {
                 string json = File.ReadAllText(configFile);
                 entity = JsonConvert.DeserializeObject<MyConfigModel>(json);
+            }
+            if (string.IsNullOrEmpty(entity.apiurl))
+            {
+                entity.apiurl = "https://api.openai.com/v1/chat/completions";
             }
             return entity;
         }
