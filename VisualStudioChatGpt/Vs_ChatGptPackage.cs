@@ -31,7 +31,7 @@ namespace VisualStudioChatGpt
         /// <summary>
         /// VisualStudioChatGptPackage GUID string.
         /// </summary>
-        public const string PackageGuidString = "a8eb0343-b35c-4175-95d8-50549e609ff3";
+        public const string PackageGuidString = "c43b20df-6d16-49bc-b783-8bb7f5c6ff4e";
 
         #region Package Members
 

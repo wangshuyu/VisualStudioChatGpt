@@ -39,7 +39,7 @@ namespace VisualStudioChatGpt.Commands
         /// <summary>
         /// Command menu group (command set GUID).
         /// </summary>
-        internal static readonly Guid CommandSet = new Guid("a8eb0343-b35c-4175-95d8-50549e609ff3");
+        internal static readonly Guid CommandSet = new Guid("c43b20df-6d16-49bc-b783-8bb7f5c6ff4e");
 
 
         internal Dictionary<string, string> dict = new Dictionary<string, string>();

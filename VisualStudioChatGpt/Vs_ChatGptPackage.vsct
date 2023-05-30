@@ -174,7 +174,7 @@
 	</CommandPlacements>
 
 	<Symbols>
-		<GuidSymbol name="guidVisualStudioChatGptPackage" value="{a8eb0343-b35c-4175-95d8-50549e609ff3}">
+		<GuidSymbol name="guidVisualStudioChatGptPackage" value="{c43b20df-6d16-49bc-b783-8bb7f5c6ff4e}">
 			<IDSymbol name="MyGroupForSubMenu" value="0x1000" />
 			<IDSymbol name="MyGroupForCommands" value="0x1001" />
 			<IDSymbol name="MySubMenu" value="0x2000" />
