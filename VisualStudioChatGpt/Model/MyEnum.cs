@@ -7,6 +7,26 @@ using System.Threading.Tasks;
 
 namespace VisualStudioChatGpt.Model
 {
+    public class TypeHelper
+    {
+        Dictionary<TyperEnum, TypeModel> dict = new Dictionary<TyperEnum, TypeModel>();
+
+        public TypeHelper()
+        {
+            dict = new Dictionary<TyperEnum, TypeModel>();
+            dict.Add(TyperEnum.Complete, new TypeModel() { Problem = "", Determiner = "" });
+            dict.Add(TyperEnum.FindBug, new TypeModel() { Problem = "", Determiner = "" });
+            dict.Add(TyperEnum.RepairBug, new TypeModel() { Problem = "", Determiner = "" });
+            dict.Add(TyperEnum.Complete, new TypeModel() { Problem = "", Determiner = "" });
+            dict.Add(TyperEnum.Complete, new TypeModel() { Problem = "", Determiner = "" });
+            dict.Add(TyperEnum.Complete, new TypeModel() { Problem = "", Determiner = "" });
+            dict.Add(TyperEnum.Complete, new TypeModel() { Problem = "", Determiner = "" });
+            dict.Add(TyperEnum.Complete, new TypeModel() { Problem = "", Determiner = "" });
+            dict.Add(TyperEnum.Complete, new TypeModel() { Problem = "", Determiner = "" });
+        }
+
+    }
+
     internal class TypeModel
     {
         private static string common = "中文回复,尽量回复简短一点,C#\r\n";
@@ -23,15 +43,15 @@ namespace VisualStudioChatGpt.Model
         internal static string AddTest = $"写一个单元测试,不要前后说明文字,{common}";
 
         /// <summary>
-        /// openai system的限定词
-        /// </summary>
-        public string Determiner { get; set; }
-
-        /// <summary>
         /// 问题
         /// 对应openai的user的content
         /// </summary>
         public string Problem { get; set; }
+
+        /// <summary>
+        /// openai system的限定词
+        /// </summary>
+        public string Determiner { get; set; }
     }
 
     /// <summary>
