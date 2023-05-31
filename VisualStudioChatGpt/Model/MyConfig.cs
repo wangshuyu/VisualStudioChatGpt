@@ -19,13 +19,14 @@ namespace VisualStudioChatGpt.Model
         /// <returns></returns>
         public static MyConfigModel Get()
         {
+            var apiurl = "https://api.openai.com/v1/chat/completions";//默认OpenAI
             var entity = new MyConfigModel()
             {
                 model = "gpt-3.5-turbo",
                 maxtoken = "500",
                 temperature = "0.7",
                 timeout = "60",
-                apiurl = "https://api.openai.com/v1/chat/completions",
+                apiurl = apiurl,
             };
             if (File.Exists(configFile))
             {
@@ -34,7 +35,11 @@ namespace VisualStudioChatGpt.Model
             }
             if (string.IsNullOrEmpty(entity.apiurl))
             {
-                entity.apiurl = "https://api.openai.com/v1/chat/completions";
+                entity.apiurl = apiurl;
+            }
+            if (string.IsNullOrEmpty(entity.serviceName))
+            {
+                entity.serviceName = ServiceEnum.OpenAI.ToString();
             }
             return entity;
         }

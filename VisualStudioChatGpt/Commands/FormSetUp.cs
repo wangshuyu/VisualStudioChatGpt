@@ -22,9 +22,18 @@ namespace VisualStudioChatGpt.Commands
         {
             InitializeComponent();
 
+            comboBox1.DropDownStyle = ComboBoxStyle.DropDownList;
+            ServiceEnum[] enumValues = (ServiceEnum[])Enum.GetValues(typeof(ServiceEnum));
+            comboBox1.DataSource = enumValues;
+            comboBox1.SelectedIndex = 0; // 默认选中第一个选项
+
             var entity = MyConfig.Get();
             if (entity != null)
             {
+                if (!string.IsNullOrEmpty(entity.serviceName))
+                {
+                    comboBox1.Text = entity.serviceName;
+                }
                 if (!string.IsNullOrEmpty(entity.apikey))
                 {
                     txt_apikey.Text = entity.apikey;
@@ -32,7 +41,7 @@ namespace VisualStudioChatGpt.Commands
                 if (!string.IsNullOrEmpty(entity.proxy))
                 {
                     txt_proxy.Text = entity.proxy;
-                }
+                } 
                 if (!string.IsNullOrEmpty(entity.model))
                 {
                     txt_model.Text = entity.model;
@@ -60,6 +69,8 @@ namespace VisualStudioChatGpt.Commands
         {
             var entity = new MyConfigModel()
             {
+                serviceName = comboBox1.SelectedValue.ToString(),
+                apiurl = txt_apiurl.Text.Trim(),
                 apikey = txt_apikey.Text.Trim(),
                 proxy = txt_proxy.Text.Trim(),
                 model = txt_model.Text.Trim(),

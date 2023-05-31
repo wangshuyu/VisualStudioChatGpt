@@ -41,8 +41,6 @@ namespace VisualStudioChatGpt.Commands
         /// </summary>
         internal static readonly Guid CommandSet = new Guid("c43b20df-6d16-49bc-b783-8bb7f5c6ff4e");
 
-
-        internal Dictionary<TyperEnum, TypeModel> dict = new Dictionary<TyperEnum, TypeModel>();
         internal MyBase()
         {
 
@@ -59,7 +57,6 @@ namespace VisualStudioChatGpt.Commands
             var _obj = new CommandID(CommandSet, id);
             var menuItem = new MenuCommand(handler, _obj);
             commandService.AddCommand(menuItem);
-
         }
 
         #region 获取选中内容
@@ -207,31 +204,38 @@ namespace VisualStudioChatGpt.Commands
                     return;
                 }
 
-                var client = new RestClient(config.apiurl);
-                client.Proxy = new WebProxy(config.proxy);
-
-                // 创建请求对象
-                var request = new RestRequest(Method.POST);
-                request.AddHeader("Authorization", $"Bearer {config.apikey}");
-                request.AddHeader("Content-Type", "application/json");
-                request.Timeout = Convert.ToInt32(config.timeout) * 1000;
-
-                request.AddJsonBody(new
+                var par = new
                 {
                     model = config.model,
                     temperature = Convert.ToDouble(config.temperature),
                     stream = true,
                     max_tokens = Convert.ToInt32(config.maxtoken),
-                    messages = new List<object> {
-                        //new { role = "system", content = word },
-                        new { role = "user", content = word } }
-                });
+                    messages = new List<object> { new { role = "user", content = word } }
+                };
 
-                // 执行请求
-                var response = client.Execute(request);
+                var client = new RestClient(config.apiurl);
+                if (!string.IsNullOrEmpty(config.proxy))
+                {
+                    client.Proxy = new WebProxy(config.proxy);
+                }
 
-                // 检查响应是否成功
-                if (response.IsSuccessful)
+                //创建请求对象
+                var request = new RestRequest(Method.POST);
+                if(config.serviceName== ServiceEnum.Azure.ToString())//微软Azure云
+                {
+                    request.AddHeader("api-key", $"{config.apikey}");
+                }
+                else//OpenAI
+                {
+                    request.AddHeader("Authorization", $"Bearer {config.apikey}");
+                }
+                request.AddHeader("Content-Type", "application/json");
+                request.Timeout = Convert.ToInt32(config.timeout) * 1000;
+                request.AddJsonBody(par);
+
+
+                var response = client.Execute(request);//执行请求                                
+                if (response.IsSuccessful)//检查响应是否成功
                 {
                     var responseStream = new MemoryStream(response.RawBytes);//获取响应内容流                
                     using (var streamReader = new StreamReader(responseStream))//创建流式读取器
