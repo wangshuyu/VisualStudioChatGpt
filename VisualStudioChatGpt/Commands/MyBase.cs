@@ -25,7 +25,6 @@ namespace VisualStudioChatGpt.Commands
 {
     internal class MyBase
     {
-
         // 定义事件处理器的委托类型
         internal delegate void MyShowEventHandler(string message);
         internal delegate void MyStartEventHandler();
@@ -221,7 +220,7 @@ namespace VisualStudioChatGpt.Commands
 
                 //创建请求对象
                 var request = new RestRequest(Method.POST);
-                if(config.serviceName== ServiceEnum.Azure.ToString())//微软Azure云
+                if (config.serviceName == ServiceEnum.Azure.ToString())//微软Azure云
                 {
                     request.AddHeader("api-key", $"{config.apikey}");
                 }

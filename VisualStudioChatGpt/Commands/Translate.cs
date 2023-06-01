@@ -9,7 +9,10 @@ using VisualStudioChatGpt.Model;
 
 namespace VisualStudioChatGpt.Commands
 {
-    internal class AddComment : MyBase
+    /// <summary>
+    /// 翻译入口
+    /// </summary>
+    internal class Translate : MyBase
     {
         internal override async void VirHandler(object sender, EventArgs e)
         {
@@ -19,7 +22,7 @@ namespace VisualStudioChatGpt.Commands
                 var selectedTex = await GetSelectedTextAsync();
                 if(!string.IsNullOrEmpty(selectedTex))
                 {
-                    await InsertChatGptAsync($"{TypeModel.AddComment}{selectedTex}", InsertPointEnum.Before);
+                    await InsertChatGptAsync($"{TypeModel.Translate}{selectedTex}", InsertPointEnum.After);
                 }
             });
         }
@@ -27,13 +30,13 @@ namespace VisualStudioChatGpt.Commands
         internal override void VirStart()
         {
             ThreadHelper.ThrowIfNotOnUIThread();
-            this.insertPoint.Insert("\r\n//");
+            this.insertPoint.Insert("\n/*");
         }
 
         internal override void VirEnd()
         {
             ThreadHelper.ThrowIfNotOnUIThread();
-            this.insertPoint.Insert("\r\n");
+            this.insertPoint.Insert("*/\r\n");
             _ = SimulateCtrlKCtrlDAsync();
         }
     }

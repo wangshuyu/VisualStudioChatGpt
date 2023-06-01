@@ -9,7 +9,6 @@ namespace VisualStudioChatGpt.Model
 {
     internal class TypeModel
     {
-        private static string common = "中文回复,尽量回复简短一点,C#\r\n";
         internal static string Message = "请选择代码块后在执行此操作!";
 
         internal static string Complete = $"补全代码\r\n你是一个经验丰富的.NET高级开发人员,简体中文\r\n只返回代码\r\n\r\n";
@@ -17,9 +16,9 @@ namespace VisualStudioChatGpt.Model
         internal static string RepairBug = $"修复代码错误\r\n你是一个经验丰富的.NET高级开发人员,简体中文\r\n只返回代码\r\n\r\n";
         internal static string Optimize = $"优化压缩代码\r\n你是一个经验丰富的.NET高级开发人员,简体中文\r\n只返回代码\r\n\r\n";
         internal static string Explain = $"解释说明\r\n你是一个经验丰富的.NET高级开发人员,简体中文\r\n只返回代码的简短解释说明\r\n\r\n";
-        internal static string AddComment = $"删除了和Explain功能重叠了\r\n\r\n";
         internal static string AddSummary = $"添加方法Summary说明\r\n你是一个经验丰富的.NET高级开发人员,简体中文\r\n只返回C#格式的AddSummary\r\n不需要返回代码块\r\n\r\n";
         internal static string AddTest = $"生成单元测试\r\n你是一个经验丰富的.NET高级开发人员,简体中文\r\n只返回代码\r\n\r\n";
+        internal static string Translate = $"中英文互译,只返回译文结果:\r\n";
     }
 
     /// <summary>

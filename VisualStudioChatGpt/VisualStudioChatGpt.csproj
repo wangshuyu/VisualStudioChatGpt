@@ -46,7 +46,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Commands\AddComment.cs" />
+    <Compile Include="Commands\Translate.cs" />
     <Compile Include="Commands\AddSummary.cs" />
     <Compile Include="Commands\AddTest.cs" />
     <Compile Include="Commands\AskAnything.cs" />
@@ -118,6 +118,7 @@
     <Content Include="Resources\customBefore.png" />
     <Content Include="Resources\customReplace.png" />
     <Content Include="Resources\explain.png" />
+    <Content Include="Resources\translate.png" />
     <Content Include="Resources\findBugs.png" />
     <Content Include="Resources\garbage.png" />
     <Content Include="Resources\Icon.png" />

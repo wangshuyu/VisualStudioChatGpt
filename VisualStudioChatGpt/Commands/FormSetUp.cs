@@ -82,9 +82,9 @@ namespace VisualStudioChatGpt.Commands
             MessageBox.Show("保存配置文件成功!");
         }
 
-        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void linkLabel1_LinkClicked_1(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            Process.Start("https://beta.openai.com/account/api-keys");
+            Process.Start("https://github.com/wangshuyu/VisualStudioChatGpt#%E8%AE%BE%E7%BD%AE%E5%8A%9F%E8%83%BD");
         }
     }
 }

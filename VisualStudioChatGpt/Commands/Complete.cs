@@ -10,7 +10,7 @@ using VisualStudioChatGpt.Model;
 namespace VisualStudioChatGpt.Commands
 {
     /// <summary>
-    /// 完成代码
+    /// 不全代码
     /// </summary>
     internal class Complete : MyBase
     {
@@ -29,8 +29,8 @@ namespace VisualStudioChatGpt.Commands
 
         internal override void VirStart()
         {
-            //ThreadHelper.ThrowIfNotOnUIThread();
-            //this.insertPoint.Insert("");
+            ThreadHelper.ThrowIfNotOnUIThread();
+            this.insertPoint.Insert("\r\n"); 
         }
 
         internal override void VirEnd()
